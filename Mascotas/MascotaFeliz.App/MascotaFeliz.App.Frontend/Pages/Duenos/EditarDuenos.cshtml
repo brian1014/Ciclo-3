@@ -1,0 +1,54 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditarDuenosModel
+@{
+}
+<h1 id="titleEdit">Editar Dueño</h1>
+
+<form method="post" >
+    <div class="form-group">
+        <input type="hidden" asp-for = "dueno.Id" />
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-user"></i>
+            <label asp-for="dueno.Nombres"></label>
+        </div>
+        <input asp-for="dueno.Nombres" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-user"></i>
+            <label asp-for="dueno.Apellidos"></label>
+        </div>
+        <input asp-for="dueno.Apellidos" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-location-dot"></i>
+            <label asp-for="dueno.Direccion"></label>
+        </div>
+        <input asp-for="dueno.Direccion" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-phone"></i>
+            <label asp-for="dueno.Telefono"></label>
+        </div>
+        <input asp-for="dueno.Telefono" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-envelope"></i>
+            <label asp-for="dueno.Correo"></label>
+        </div>
+        <input asp-for="dueno.Correo" class="form-control">
+
+        <button type="submit" class="btn btn-primary submit submit-dueno">Grabar</button>
+    </div>
+</form>
+
+<a asp-page="./ListaDuenos" class="btn btn-primary submit submit-dueno">Lista de Dueños</a>
+
+<script>
+    let titleEdit = document.getElementById("titleEdit");
+    let text = localStorage.getItem("actionDueno");
+    if(text != null){
+        titleEdit.innerText = localStorage.getItem("actionDueno");
+        text = null;
+        localStorage.removeItem("actionDueno");
+    }
+</script>

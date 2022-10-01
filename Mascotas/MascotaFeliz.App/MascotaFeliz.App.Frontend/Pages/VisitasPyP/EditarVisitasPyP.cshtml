@@ -1,0 +1,51 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditarVisitasPyPModel
+@{
+}
+<h1 id="titleEdit">Editar VisitaPyP</h1>
+
+<form method="post" >
+    <div class="form-group">
+
+        <input type="hidden" asp-for = "visitaPyP.Id" class="form-control">
+
+        <label>Fecha de la visita</label>       
+        <input type="date" asp-for = "visitaPyP.FechaVisita" class="form-control">
+
+        <label asp-for="visitaPyP.Temperatura">Temperatura</label>       
+        <input type="text" asp-for = "visitaPyP.Temperatura" class="form-control">
+
+        <label asp-for="visitaPyP.Peso">Peso</label>       
+        <input type="text" asp-for = "visitaPyP.Peso" class="form-control">
+
+        <label asp-for="visitaPyP.FrecuenciaRespiratoria">Frecuencia respiratoria</label>       
+        <input type="text" asp-for = "visitaPyP.FrecuenciaRespiratoria" class="form-control">
+
+        <label asp-for="visitaPyP.FrecuenciaCardiaca">Frecuencia cardiaca</label>       
+        <input type="text" asp-for = "visitaPyP.FrecuenciaCardiaca" class="form-control">
+
+        <label asp-for="visitaPyP.EstadoAnimo">Estado de ánimo</label>       
+        <input asp-for = "visitaPyP.EstadoAnimo" class="form-control">
+
+        <label asp-for="visitaPyP.Recomendaciones">Recomendaciones</label>       
+        <input asp-for = "visitaPyP.Recomendaciones" class="form-control">
+
+        <label>Veterinario</label>
+       @*  <input asp-for = "visitaPyP.VeterinarioId" value="3" class="form-control"> *@
+        <select id="veterinario" asp-for="visitaPyP.VeterinarioId" class="form-control">
+            <option value="0">Selecione un Veterinario</option>
+            @foreach (var veterinario in Model.listaVeterinarios)
+            {
+                <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos</option>
+            }
+        </select>
+
+         @if(Model.mascota.Historia == null){
+            <button type="submit" class="btn btn-primary submit submit-dueno">Crear Historia</button>   
+        } else{
+            <button type="submit" class="btn btn-primary submit submit-dueno">Registrar Visita</button>
+        }
+    </div>
+</form>
+
+<a asp-page="./ListaVisitasPyP" asp-route-mascotaId="@Model.mascota.Id" class="btn btn-primary submit submit-dueno">Volver a historia clínica</a>

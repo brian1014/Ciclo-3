@@ -1,0 +1,52 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.DetallesVeterinariosModel
+@{
+}
+<h1> Detalles del Veterinario</h1>
+
+<div class="mainContainerDueno">
+    <table class="tableDueno">
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-id-card-clip"></i>
+                Id:
+            </td>
+            <td>@Model.veterinario.Id</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-user"></i>
+                Nombres:
+            </td>
+            <td>@Model.veterinario.Nombres</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-user"></i>
+                Apellidos:
+            </td>
+            <td>@Model.veterinario.Apellidos</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-location-dot"></i>
+                Dirección:
+            </td>
+            <td>@Model.veterinario.Direccion</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-phone"></i>
+                Teléfono:
+            </td>
+            <td>@Model.veterinario.Telefono</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-envelope"></i> Tarjeta profesional:
+            </td>
+            <td>@Model.veterinario.TarjetaProfesional</td>
+        </tr>
+    </table>
+</div>
+<a asp-page="./ListaVeterinarios" class="btn btn-primary submit submit-dueno">Lista de Veterinarios </a>

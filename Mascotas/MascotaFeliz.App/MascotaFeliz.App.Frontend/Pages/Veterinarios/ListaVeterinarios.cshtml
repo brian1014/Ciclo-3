@@ -1,0 +1,43 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.ListaVeterinariosModel
+@{
+}
+<h1> Listado de veterinarios</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Tarjeta Profesional</th>
+        <th>Detalles</th>
+        <th>Editar</th>
+    </tr>
+    @foreach (var veterinario in Model.listaVeterinarios)
+    {
+        <tr>
+            <td>@veterinario.Id</td>
+            <td>@veterinario.Nombres</td>
+            <td>@veterinario.Apellidos</td>
+            <td>@veterinario.TarjetaProfesional</td>
+
+             <td class="box-actions">
+                <a class="btn btn-primary submit action" asp-page="./DetallesVeterinarios" asp-route-veterinarioId="@veterinario.Id">
+                    Detalle Veterinarios
+                </a>
+            </td>
+
+            <td class="box-actions">
+                <a class="btn btn-primary submit action" asp-page="./EditarVeterinarios" asp-route-veterinarioId="@veterinario.Id">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<a id="btnAddDueno" class="btn btn-primary submit" asp-page ="./EditarVeterinarios" class="btn-default">Adicionar Veterinario</a>
+<script>
+    let btnAddDueno = document.getElementById("btnAddDueno");
+    btnAddDueno.addEventListener("click", function(){
+        localStorage.setItem("actionDueno", "Agregar Veterinario");
+    })
+</script>

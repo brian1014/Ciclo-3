@@ -27,7 +27,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .UseIdentityColumn();
 
                     b.Property<DateTime>("fechaInicial")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime");
 
                     b.HasKey("Id");
 
@@ -114,7 +114,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaVisita")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime");
 
                     b.Property<float>("FrecuenciaCardiaca")
                         .HasColumnType("real");
@@ -123,9 +123,6 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .HasColumnType("real");
 
                     b.Property<int?>("HistoriaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdVeterniario")
                         .HasColumnType("int");
 
                     b.Property<float>("Peso")
@@ -137,9 +134,14 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     b.Property<float>("Temperatura")
                         .HasColumnType("real");
 
+                    b.Property<int?>("VeterinarioId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("HistoriaId");
+
+                    b.HasIndex("VeterinarioId");
 
                     b.ToTable("VisitasPyP");
                 });
@@ -187,9 +189,17 @@ namespace MascotaFeliz.App.Persistencia.Migrations
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.VisitaPyP", b =>
                 {
-                    b.HasOne("MascotaFeliz.App.Dominio.Historia", null)
+                    b.HasOne("MascotaFeliz.App.Dominio.Historia", "Historia")
                         .WithMany("VisitasPyP")
                         .HasForeignKey("HistoriaId");
+
+                    b.HasOne("MascotaFeliz.App.Dominio.Veterinario", "Veterinario")
+                        .WithMany()
+                        .HasForeignKey("VeterinarioId");
+
+                    b.Navigation("Historia");
+
+                    b.Navigation("Veterinario");
                 });
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>

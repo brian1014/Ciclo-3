@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mascotafeliz.App.Dominio\MascotaFeliz.App.Dominio.csproj" />
+    <ProjectReference Include="..\MascotaFeliz.App.Dominio\MascotaFeliz.App.Dominio.csproj" />
   </ItemGroup>
 
-</Project>
+  </Project>

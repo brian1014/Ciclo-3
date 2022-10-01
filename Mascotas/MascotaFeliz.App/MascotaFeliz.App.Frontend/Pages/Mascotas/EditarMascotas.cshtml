@@ -1,0 +1,73 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditarMascotasModel
+@{
+}
+<h1 id="titleEdit">Editar Mascota</h1>
+
+<form method="post" >
+    <div class="form-group">
+        <input type="hidden" asp-for = "mascota.Id" />
+        
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-user"></i>
+            <label asp-for="mascota.Nombre"></label>
+        </div>
+        <input asp-for="mascota.Nombre" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-user"></i>
+            <label asp-for="mascota.Color"></label>
+        </div>
+        <input asp-for="mascota.Color" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-location-dot"></i>
+            <label asp-for="mascota.Especie"></label>
+        </div>
+        <input asp-for="mascota.Especie" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-phone"></i>
+            <label asp-for="mascota.Raza"></label>
+        </div>
+        <input asp-for="mascota.Raza" class="form-control">
+
+        <label for="dueno">Dueño</label>
+        <select id="dueno" asp-for="mascota.Dueno.Id" name="duenoId">
+            <option value="0">Selecione un Dueño</option>
+            @foreach (var dueno in Model.listaDuenos)
+            {
+                <option value="@dueno.Id">@dueno.Nombres @dueno.Apellidos</option>
+            }
+        </select>
+
+        <label for="veterinario">Veterinario</label>
+        <select id="veterinario" asp-for="mascota.Veterinario.Id" name="veterinarioId">
+            <option value="0">Selecione un Veterinario</option>
+            @foreach (var veterinario in Model.listaVeterinarios)
+            {
+                <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos</option>
+            }
+        </select>
+
+        
+        <button type="submit" class="btn btn-primary submit submit-dueno">Grabar</button>
+    </div>
+</form>
+
+<a asp-page="./ListaMascotas" class="btn btn-primary submit submit-dueno">Lista de Mascotas</a>
+
+<script>
+    let titleEdit = document.getElementById("titleEdit");
+    let text = localStorage.getItem("actionDueno");
+    if(text != null){
+        titleEdit.innerText = localStorage.getItem("actionDueno");
+        text = null;
+        localStorage.removeItem("actionDueno");
+    }
+
+    let dueno = document.getElementById("dueno");
+    dueno.addEventListener("change", function(){
+        console.log(dueno.value)
+    })
+</script>

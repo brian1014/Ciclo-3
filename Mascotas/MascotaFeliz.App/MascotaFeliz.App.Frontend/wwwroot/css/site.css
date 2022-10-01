@@ -1,0 +1,221 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+*{
+  font-family: 'Rubik', sans-serif;
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #931e9a;
+  border-color: #931e9a;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+/* .mb-3{
+  margin-bottom: 0 !important;
+}
+
+.container{
+  margin: 0;
+  padding: 0;
+  max-width: 100% !important;
+} */
+nav .container{
+  margin: 0;
+}
+main{
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #931e9a;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.btn-primary{
+  padding: 11px;
+  background-color: #931e9a;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  min-width: initial;
+}
+.btn-primary:hover{
+  cursor: pointer;
+  box-shadow: 0 0 10px #d62ddf;
+  background-color: #d62ddf !important;
+}
+
+.submit{
+  max-width: 250px !important;
+  align-self: end;
+  margin-top: 25px;
+}
+table{
+  border-radius: 15px;
+}
+table, th, td {
+  border-color: #931e9a!important;
+  
+}
+
+th {
+  text-align: center;
+}
+
+.box-actions{
+  text-align: center;
+}
+
+.box-actions .btn{
+  display: initial !important;
+}
+
+.fa-dog {
+  color: #931e9a;
+}
+
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer img {
+  width: 100%;
+  max-width: 500px;
+  align-self: center;
+}
+
+.mainContainerDueno{
+  display: flex;
+  justify-content: center;
+}
+
+.tableDueno{
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 40px;
+  align-self: center;
+  font-size: 18px;
+}
+
+.tableDueno td{
+  color: black;
+}
+
+.iconDueno{
+  padding: 5px;
+  color: #931e9a;
+  border: solid 1px #931e9a;
+}
+.labelDueno i{
+  color: #931e9a !important;
+  margin-right: 15px;
+}
+.tableDueno tr, .tableDueno td{
+  border: solid 1px #931e9a;
+  padding: 10px;
+}
+
+.labelDueno{
+  color: #931e9a !important;
+  font-weight: bold;
+}
+
+.submit-dueno{
+  align-self: center;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.form-group input{
+  margin-bottom: 10px;
+}
+
+.form-group label{
+  color: #931e9a;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.itemFormDueno{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.itemFormDueno i{
+  color: #931e9a;
+}
+
+.welcome{
+  color: #931e9a;
+  text-align: center;
+  display: block;
+  font-size: 25px;
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.ListaDuenosModel
+@{
+}
+
+<h1> Listado de propietarios</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>Detalles</th>
+        <th>Editar</th>
+    </tr>
+    @foreach (var dueno in Model.listaDuenos)
+    {
+        <tr>
+            <td>@dueno.Id</td>
+            <td>@dueno.Nombres</td>
+            <td>@dueno.Apellidos</td>
+            <td>@dueno.Correo</td>
+
+             <td class="box-actions">
+                <a class="btn btn-primary submit action" asp-page="./DetallesDuenos" asp-route-duenoId="@dueno.Id">
+                    Detalle Dueño
+                </a>
+            </td>
+
+            <td class="box-actions">
+                <a class="btn btn-primary submit action" asp-page="./EditarDuenos" asp-route-duenoId="@dueno.Id">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<a id="btnAddDueno" class="btn btn-primary submit" asp-page ="./EditarDuenos" class="btn-default">Adicionar Dueño</a>
+<script>
+    let btnAddDueno = document.getElementById("btnAddDueno");
+    btnAddDueno.addEventListener("click", function(){
+        localStorage.setItem("actionDueno", "Agregar Dueño");
+    })
+</script>

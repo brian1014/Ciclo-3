@@ -1,0 +1,54 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditarVeterinariosModel
+@{
+}
+<h1 id="titleEdit">Editar Veterinarios</h1>
+
+<form method="post" >
+    <div class="form-group">
+        <input type="hidden" asp-for = "veterinario.Id" />
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-user"></i>
+            <label asp-for="veterinario.Nombres"></label>
+        </div>
+        <input asp-for="veterinario.Nombres" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-user"></i>
+            <label asp-for="veterinario.Apellidos"></label>
+        </div>
+        <input asp-for="veterinario.Apellidos" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-location-dot"></i>
+            <label asp-for="veterinario.Direccion"></label>
+        </div>
+        <input asp-for="veterinario.Direccion" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-phone"></i>
+            <label asp-for="veterinario.Telefono"></label>
+        </div>
+        <input asp-for="veterinario.Telefono" class="form-control">
+
+        <div class="itemFormDueno" >
+            <i class="fa-solid fa-envelope"></i>
+            <label asp-for="veterinario.TarjetaProfesional"></label>
+        </div>
+        <input asp-for="veterinario.TarjetaProfesional" class="form-control">
+
+        <button type="submit" class="btn btn-primary submit submit-dueno">Grabar</button>
+    </div>
+</form>
+
+<a asp-page="./ListaVeterinarios" class="btn btn-primary submit submit-dueno">Lista de Veterinarios</a>
+
+<script>
+    let titleEdit = document.getElementById("titleEdit");
+    let text = localStorage.getItem("actionDueno");
+    if(text != null){
+        titleEdit.innerText = localStorage.getItem("actionDueno");
+        text = null;
+        localStorage.removeItem("actionDueno");
+    }
+</script>

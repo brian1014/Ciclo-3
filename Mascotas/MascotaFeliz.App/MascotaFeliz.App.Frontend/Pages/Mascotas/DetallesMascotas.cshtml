@@ -1,0 +1,62 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.DetallesMascotasModel
+@{
+}
+<h1> Detalles de la Mascota</h1>
+
+<div class="mainContainerDueno">
+    <table class="tableDueno">
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-id-card-clip"></i>
+                Id:
+            </td>
+            <td>@Model.mascota.Id</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-user"></i>
+                Nombre:
+            </td>
+            <td>@Model.mascota.Nombre</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-user"></i>
+                Color:
+            </td>
+            <td>@Model.mascota.Color</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-location-dot"></i>
+                Especie:
+            </td>
+            <td>@Model.mascota.Especie</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-phone"></i>
+                Raza:
+            </td>
+            <td>@Model.mascota.Raza</td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-user"></i>
+                Dueño:
+            </td>
+            <td><a title="Ver detalles del dueño de @Model.mascota.Nombre" asp-page="/Duenos/DetallesDuenos" asp-route-duenoId="@Model.mascota.Dueno.Id">@Model.mascota.Dueno.Nombres @Model.mascota.Dueno.Apellidos</a></td>
+        </tr>
+        <tr>
+            <td class="labelDueno">
+                <i class="fa-solid fa-user"></i>
+                Veterinario asignado:
+            </td>
+            <td><a title="Ver detalles del veterinario de @Model.mascota.Nombre" asp-page="/Veterinarios/DetallesVeterinarios" asp-route-veterinarioId="@Model.mascota.Veterinario.Id">@Model.mascota.Veterinario.Nombres @Model.mascota.Veterinario.Apellidos</a></td>
+        </tr>
+    </table>
+</div>
+<a asp-page="./ListaMascotas" class="btn btn-primary submit submit-dueno">Lista de Mascotas</a>
+
+<a asp-page="/VisitasPyP/ListaVisitasPyP" asp-route-mascotaId="@Model.mascota.Id" class="btn btn-primary submit submit-dueno">Historia Clínica</a>

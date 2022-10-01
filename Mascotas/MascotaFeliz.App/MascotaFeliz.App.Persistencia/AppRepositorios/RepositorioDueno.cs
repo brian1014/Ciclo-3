@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MascotaFeliz.App.Persistencia
 {
-    public class RepositorioDueno : IRepositorioDueno
+    public class RepositorioDueno: IRepositorioDueno
     {
         /// <summary>
         /// Referencia al contexto de Dueno

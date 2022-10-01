@@ -1,0 +1,46 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.ListaVisitasPyPModel
+@{
+}
+
+<h1>Historia Clínica de @Model.mascota.Nombre</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Fecha de visita</th>
+        <th>Temperatura</th>
+        <th>Peso</th>
+        <th>Frecuencia respiratoria</th>
+        <th>Frecuencia cardiaca</th>
+        <th>Estado de ánimo</th>
+        <th>Veterinario visita</th>
+        <th>Recomendaciones</th>
+        <th>Editar</th>
+    </tr>
+    @foreach (var visita in Model.ListaVisitasPyP){
+        <tr>
+            <td>@visita.FechaVisita</td>
+            <td>@visita.Temperatura</td>
+            <td>@visita.Peso</td>
+            <td>@visita.FrecuenciaRespiratoria</td>
+            <td>@visita.FrecuenciaCardiaca</td>
+            <td>@visita.EstadoAnimo</td>
+            <td>@visita.Veterinario.Nombres @visita.Veterinario.Apellidos</td>
+            <td>@visita.Recomendaciones</td>
+
+            <td class="box-actions">
+                <a class="btn btn-primary submit action" asp-page="./EditarVisitasPyP" asp-route-visitaId="@visita.Id" asp-route-mascotaId="@Model.mascota.Id">
+                <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-page="/VisitasPyP/EditarVisitasPyP" class="btn btn-primary submit submit-dueno" asp-route-mascotaId="@Model.mascota.Id">@Model.action</a>
+
+<script>
+    let btnAddVisita = document.getElementById("btnAddVisita");
+    btnAddVisita.addEventListener("click", function(){
+        localStorage.setItem("actionVisita", "Agregar Visita");
+    })
+</script>

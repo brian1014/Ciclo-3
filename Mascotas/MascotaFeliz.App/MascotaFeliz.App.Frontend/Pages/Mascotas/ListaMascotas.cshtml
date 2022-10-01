@@ -1,0 +1,47 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.ListaMascotasModel
+@{
+}
+<h1> Listado de mascotas</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Color</th>
+        <th>Especie</th>
+        <th>Dueño</th>
+        <th>Veterinario</th>
+        <th>Detalles</th>
+        <th>Editar</th>
+    </tr>
+    @foreach (var mascota in Model.listaMascotas)
+    {
+        <tr>
+            <td>@mascota.Id</td>
+            <td>@mascota.Nombre</td>
+            <td>@mascota.Color</td>
+            <td>@mascota.Especie</td>
+            <td>@mascota.Dueno.Nombres @mascota.Dueno.Apellidos</td>
+            <td>@mascota.Veterinario.Nombres @mascota.Veterinario.Apellidos</td>
+
+             <td class="box-actions">
+                <a class="btn btn-primary submit action" asp-page="./DetallesMascotas" asp-route-mascotaId="@mascota.Id">
+                    Detalle Mascota
+                </a>
+            </td>
+
+            <td class="box-actions">
+                <a class="btn btn-primary submit action" asp-page="./EditarMascotas" asp-route-mascotaId="@mascota.Id">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<a id="btnAddDueno" class="btn btn-primary submit" asp-page ="./EditarMascotas" class="btn-default">Adicionar Mascota</a>
+<script>
+    let btnAddDueno = document.getElementById("btnAddDueno");
+    btnAddDueno.addEventListener("click", function(){
+        localStorage.setItem("actionDueno", "Agregar Mascota");
+    })
+</script>
